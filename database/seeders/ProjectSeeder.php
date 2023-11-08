@@ -2,16 +2,31 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
-        //
+        for ($i=0; $i < 10; $i++) { 
+            $project = new Project();
+
+            $project->title = $faker->realText(25);
+            $project->authors = $faker->name();
+            $project->slug = Str::slug($project->title, '-');
+            // $project->thumb = 'thumbs/' . $faker->image('public/storage/thumbs', category: 'Projects', fullPath: 'false');
+            // dd($project->thumb);
+            $project->description = $faker->realText(200);
+            $project->tech = $faker->company();
+
+            $project->save();
+        }
     }
 }
