@@ -80,7 +80,9 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
 
-                                <a class="dropdown-item" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}" href="{{route('dashboard')}}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                </a>
                             </li>
 
                         </ul>
