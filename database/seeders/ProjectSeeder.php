@@ -18,14 +18,14 @@ class ProjectSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $project = new Project();
 
-            $project->title = $faker->realText(25);
-            $project->authors = $faker->name();
-            $project->slug = Str::slug($project->title, '-');
-            // $project->thumb = 'thumbs/' . $faker->image('public/storage/thumbs', category: 'Projects', fullPath: 'false');
-            // dd($project->thumb);
-            $project->description = $faker->realText(200);
-            $project->tech = $faker->company();
+            $project->title = $faker->realText(10);
 
+            $project->description = $faker->realText(50);
+
+            $project->authors = $faker->name();
+
+            $project->slug = Str::slug($project->title, '-');     
+            
             $project->save();
         }
     }
